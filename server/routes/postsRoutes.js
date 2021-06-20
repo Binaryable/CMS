@@ -24,7 +24,7 @@ router.get('/user/:uid', getPostsByUserId);
 router.post(
 	'/',
 	auth,
-	fileUpload.single('image'),
+	fileUpload.single('imageUrl'),
 	[
 		body('title', 'Title is required').not().isEmpty().trim(),
 		body('description', 'Please enter description min length is 5')
