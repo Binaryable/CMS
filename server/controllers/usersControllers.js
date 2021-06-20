@@ -17,7 +17,7 @@ exports.getUsers = async (req, res, next) => {
 	}
 
 	res.status(200).json({
-		message: `find all users successfuly`,
+		message: `find all users successfully`,
 		count: users.length,
 		users: users.map(u => u.toObject({ getters: true })),
 	});
@@ -85,7 +85,7 @@ exports.signup = async (req, res, next) => {
 	}
 
 	res.status(201).json({
-		message: 'Signed up successfuly',
+		message: 'Signed up successfully',
 		userId: createdUser.id,
 		email: createdUser.email,
 		token: token,
@@ -144,7 +144,7 @@ exports.login = async (req, res, next) => {
 	}
 
 	res.json({
-		message: 'Loggedin successfuly',
+		message: 'Loggedin successfully',
 		userId: exsitingUser.id,
 		email: exsitingUser.email,
 		token: token,

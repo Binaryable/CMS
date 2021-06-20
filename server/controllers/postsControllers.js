@@ -19,7 +19,7 @@ exports.getAllPosts = async (req, res, next) => {
 	}
 
 	res.status(200).json({
-		message: `find all posts successfuly`,
+		message: `find all posts successfully`,
 		count: posts.length,
 		posts: posts.map(p => p.toObject({ getters: true })),
 	});
@@ -48,7 +48,7 @@ exports.getPostById = async (req, res, next) => {
 	}
 
 	res.status(200).json({
-		message: `find successfuly post with id ${postId}`,
+		message: `find successfully post with id ${postId}`,
 		post: post.toObject({ getters: true }),
 	});
 };
@@ -74,7 +74,7 @@ exports.getPostsByUserId = async (req, res, next) => {
 	}
 
 	res.status(200).json({
-		message: `find successfuly post with id ${userId}`,
+		message: `find successfully post with id ${userId}`,
 		posts: posts.map(p => p.toObject({ getters: true })),
 	});
 };
@@ -136,7 +136,7 @@ exports.createPost = async (req, res, next) => {
 
 	res
 		.status(201)
-		.json({ message: 'post created successfuly', post: createdPost });
+		.json({ message: 'post created successfully', post: createdPost });
 };
 
 exports.updatePostById = async (req, res, next) => {
@@ -188,7 +188,7 @@ exports.updatePostById = async (req, res, next) => {
 	}
 
 	res.status(200).json({
-		message: 'Post updated successfuly',
+		message: 'Post updated successfully',
 		post: updatedPost,
 	});
 };
@@ -244,7 +244,7 @@ exports.deletePostById = async (req, res, next) => {
 	fs.unlink(imagePath, err => console.log(err));
 
 	res.status(200).json({
-		message: 'post deleted successfuly',
+		message: 'post deleted successfully',
 		post: post,
 	});
 };
