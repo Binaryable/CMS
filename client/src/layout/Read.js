@@ -5,7 +5,7 @@ const { BASE_URL } = require('../shared/api')
 export default function Read() {
     // use react hooks to coollect and handle data from api
     // init data in hook
-    const [posts, setPosts] = useState([]) // init post as empty array    
+    const [posts, setPosts] = useState([]) // init post as empty array 
     const [page,setPage] = useState(1) // page (pagination) - defult page (1)
     // next page 
     const changePageNext = (e) =>{
@@ -29,9 +29,9 @@ export default function Read() {
     // handel request using axios into use effect function
     useEffect(() => {
         // use axios to make get request
-        axios.get(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=4`).then(res => {
-            setPosts(res.data)  // replace post empty array by returned data from db
-        })
+       // axios.get(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=4`).then(res => {
+         //   setPosts(res.data)  // replace post empty array by returned data from db
+      //  })
     }, [changePageNext, changePagePrev]); // dependencies array control excuting of function depend on what in betwen (ex : function )
    
    const items = posts.map(item=>{

@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import Read from './Read'
+import Add from './Add'
+import './index.sass'
 export default class Index extends Component {
     render() {
         return (
-<div className=''>
+<div id="indexpage">
 <div className="">
 <div class="row">
   <div class="col-4 mydashboard">
@@ -12,7 +14,6 @@ export default class Index extends Component {
     <br />
       <img className="mb-3 logo" src="https://avatars.githubusercontent.com/u/85824601?s=200&v=4" alt="" width="90" height="90" />
       <br />      <br />
-
       <h2 className="text-white">Binaryable CMS</h2>
       </center>
         <br />
@@ -25,10 +26,21 @@ export default class Index extends Component {
   <div class="col-8">
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-<Read></Read>
+        <div>
+            <br />
+            <br />
+            <h2>
+              Welcome to Binaryable Basic CMS
+            </h2>
+            <p>This Project for education purpose</p>
+        </div>
       </div>
-      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">sf</div>
-      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">losl</div>
+      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+      <Read />
+      </div>
+      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+        <Add />
+      </div>
       <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">lol</div>
     </div>
   </div>

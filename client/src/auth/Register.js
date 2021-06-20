@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import Cookies from 'universal-cookie';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import './auth.css'
+import './auth.scss'
+const { BASE_URL } = require('../shared/api')  
 export default class Register extends Component {
   state = {}
   handleInputs =(e)=>{
@@ -13,11 +14,16 @@ export default class Register extends Component {
   }
   handleSubmit = (e) =>{
     e.preventDefault()
+    const val = this.state
     const data = {
-      email: this.state.email ,
-      password : this.state.password
+      email: val.email ,
+      password : val.password,
+      name : val.name
     }
-  axios.post(`url`,data)
+  axios.post(`${BASE_URL}/users/signup`,data).then(res=>{
+    console.log(res);
+    alert("Your account has been created !")
+  })
   }
     render() {
         return (
@@ -32,7 +38,7 @@ export default class Register extends Component {
       <h1 className="h3 mb-3 fw-normal">Create new account</h1>
       </center>
       <div className="form-floating">
-      <input name="username" onChange={this.handleInputs} type="text" className="form-control" id="floatingInput" placeholder="example" />
+      <input name="name" onChange={this.handleInputs} type="text" className="form-control" id="floatingInput" placeholder="example" />
       <label htmlFor="floatingInput">Username</label>
     </div>
     <div className="form-floating">
