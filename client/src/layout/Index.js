@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Cookies from 'universal-cookie';
 import Read from './Read'
 import Add from './Add'
 import './index.sass'
@@ -16,11 +17,36 @@ export default class Index extends Component {
       <br />      <br />
       <h2 className="text-white">Binaryable CMS</h2>
       </center>
-        <br />
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Index</a>
-      <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Read</a>
-      <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Add</a>
-      <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Delete</a>
+      <br />
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">
+        <h5>
+        Index
+        </h5>
+        <p>(Complete Crud Operation)</p>
+        
+        </a>
+      <a class="list-group-item list-group-item-action" id="list-read-list" data-bs-toggle="list" href="#list-read" role="tab" aria-controls="list-read">
+      <h5>
+        Read
+        </h5>
+        <p>(Map , List and delete)</p>
+        
+      </a>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">
+      <h5>
+        Add
+        </h5>
+        <p>(Add posts & Image upload)</p>
+      </a>
+    
+    <br/>
+    <a onClick={()=>{
+      const cookies = new Cookies();
+      cookies.remove('token')
+      window.location.reload()
+    }} className="delt list-group-item list-group-item-action">
+      <h5>Logout</h5>
+      </a>
     </div>
   </div>
   <div class="col-8">
@@ -35,7 +61,7 @@ export default class Index extends Component {
             <p>This Project for education purpose</p>
         </div>
       </div>
-      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+      <div class="tab-pane fade" id="list-read" role="tabpanel" aria-labelledby="list-read-list">
       <Read />
       </div>
       <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">

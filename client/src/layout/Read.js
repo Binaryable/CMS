@@ -25,27 +25,29 @@ export default function Read() {
         alert("you are in first page")
         }
     }
-
     // handel request using axios into use effect function
     useEffect(() => {
         // use axios to make get request
-       // axios.get(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=4`).then(res => {
-         //   setPosts(res.data)  // replace post empty array by returned data from db
-      //  })
-    }, [changePageNext, changePagePrev]); // dependencies array control excuting of function depend on what in betwen (ex : function )
+        axios.get(`${BASE_URL}/posts?page=${page}`).then(res => {
+            setPosts(res.data.posts)
+            console.log(res.data);
+            
+       })
+    }, [page]); // dependencies array control excuting of function depend on what in betwen (ex : function )
    
-   const items = posts.map(item=>{
+   const items = posts.map((item,key)=>{
        return (<div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+  <a key={item._id} href="#" class="list-group-item list-group-item-action active" aria-current="true">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{item.title}</h5>
       <small>ID : {item.id}</small>
     </div>
-    <p class="mb-1">{item.body}</p>
+    <p class="mb-1">{item.description}</p>
   </a>
   <br />
 </div>)
    })
+   
     return (
         <div className="container-fluid">
         <br />

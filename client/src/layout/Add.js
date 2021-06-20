@@ -20,29 +20,24 @@ export default class Add extends Component {
     // select image and add it to react state
     slectImage = (e) => {
         e.preventDefault();
-        const data = new FormData();
-        data.append('image',e.target.files[0])  // appand image binary
-        this.setState({ image: data})
-        console.log(data);
+        this.setState({ image: e.target.files[0]})
+        console.log(e.target.files);
     }
     // send data via api to db
     handleSubmit = e => {
 
 
         e.preventDefault();  // prevend defult behaviour (reload page)
-        //const imgdata = new FormData();  // define ne form data
-        //imgdata.append('image', this.state.image)  // appand image binary
-       // imgdata.append('name', this.state.image.name) // appand image name
-        const that = this.state
         const cookies = new Cookies();
         const userId = cookies.get('userID',{ path: '/' });
         const token = cookies.get('token',{ path: '/' });
-        const data = { // define data
-            "title": that.title,  // define title conatined from state
-            "description": that.description, // define title conatined from state
-            "imageUrl": that.image ,  // define title image url from state
-            "userId" : userId // user from cookies
-        };
+
+        const formdata = new FormData();
+        formdata.append("title", this.state.title);
+        formdata.append("description",this.state.description);
+        formdata.append("imageUrl", this.state.image);
+        formdata.append("creator", userId);
+       
         const config = {  // define axios config
             method: 'post',   // method (POST - GET - PUT -PATCH - DELETE)
             url: `${BASE_URL}/posts`,  // api url
@@ -50,7 +45,7 @@ export default class Add extends Component {
                 'Accept': 'application/json', 
                 'Authorization': `Bearer ${token}`, 
                 'Content-Type': 'application/json'},
-            data: data  // data as json object
+            data: formdata  // data as form-data 
         };
         axios(config) // excute axios api
         // promises 
@@ -61,7 +56,6 @@ export default class Add extends Component {
             console.log(err);
             });
     }
-    
     render() {
         return (
             <div className="container">
