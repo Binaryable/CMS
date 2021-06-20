@@ -37,13 +37,19 @@ export default function Read() {
    
    const items = posts.map((item,key)=>{
        return (<div class="list-group">
-  <a key={item._id} href="#" class="list-group-item list-group-item-action active" aria-current="true">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{item.title}</h5>
-      <small>ID : {item.id}</small>
+<div  class="card" >
+  <div class="row">
+    <div class="col-md-2">
+      <img src="https://avatars.githubusercontent.com/u/85824601?s=200&v=4" height='135px' alt="..." />
     </div>
-    <p class="mb-1">{item.description}</p>
-  </a>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h6 class="card-title">{item.title}</h6>
+        <p class="card-text">{item.description}</p>
+      </div>
+    </div>
+  </div>
+</div>
   <br />
 </div>)
    })

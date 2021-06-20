@@ -59,6 +59,16 @@ export default class Index extends Component {
               Welcome to Binaryable Basic CMS
             </h2>
             <p>This Project for education purpose</p>
+            <code>
+              <p>Current funcionality</p>
+              <ul>
+                <li> Single page application + web api services </li>
+                <li> Full authentication & authorization (JWT Based)</li>
+                <li> Full CRUD operations</li>
+                <li> File upload </li>
+
+              </ul>
+            </code>
         </div>
       </div>
       <div class="tab-pane fade" id="list-read" role="tabpanel" aria-labelledby="list-read-list">

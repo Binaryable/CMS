@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Cookies from 'universal-cookie'
+import Swal from 'sweetalert2'
 const { BASE_URL } = require('../shared/api') 
 export default class Add extends Component {  
      // init state (those data would be sent via api )
@@ -50,7 +51,15 @@ export default class Add extends Component {
         axios(config) // excute axios api
         // promises 
             .then(res =>{  // respond after excute axios
-            console.log(res);
+            console.log(res)
+            const Swal = require('sweetalert2')
+            Swal.fire({
+                title: 'Post added !',
+                text: `you post has been added with title ${this.state.title}`,
+                icon: 'success',
+                confirmButtonText: 'nice !'
+              })
+
             })
             .catch(err => { // catch error if happend
             console.log(err);
