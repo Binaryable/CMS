@@ -40,7 +40,7 @@ export default class Add extends Component {
         const data = { // define data
             "title": that.title,  // define title conatined from state
             "description": that.description, // define title conatined from state
-            "address": that.image ,  // define title image url from state
+            "imageUrl": that.image ,  // define title image url from state
             "userId" : userId // user from cookies
         };
         const config = {  // define axios config
@@ -49,8 +49,7 @@ export default class Add extends Component {
             headers: { 
                 'Accept': 'application/json', 
                 'Authorization': `Bearer ${token}`, 
-                'Content-Type': 'application/json'
-              },
+                'Content-Type': 'application/json'},
             data: data  // data as json object
         };
         axios(config) // excute axios api

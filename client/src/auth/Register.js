@@ -2,10 +2,14 @@ import React, { Component } from 'react'
 import Cookies from 'universal-cookie';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import Swal from 'sweetalert2'
+import { Redirect } from 'react-router';
 import './auth.scss'
 const { BASE_URL } = require('../shared/api')  
 export default class Register extends Component {
-  state = {}
+  state = {
+    rediret : false,
+  }
   handleInputs =(e)=>{
     e.preventDefault();
     const name = e.target.name;
@@ -21,11 +25,20 @@ export default class Register extends Component {
       name : val.name
     }
   axios.post(`${BASE_URL}/users/signup`,data).then(res=>{
-    console.log(res);
-    alert("Your account has been created !")
+    Swal.fire({
+      title: 'congratulations !',
+      text: `Now you are one of us ${this.state.name}`,
+      icon: 'success',
+      confirmButtonText: 'Nice'
+    }).then(
+      this.setState({rediret:true})
+    )
   })
   }
     render() {
+      if (this.state.rediret){
+        return (<Redirect to="/" />)
+      }
         return (
 <div className="" id="login">
 <br /><br /><br />
