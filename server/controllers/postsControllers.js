@@ -8,10 +8,14 @@ const Post = require('../models/Post');
 const User = require('../models/User');
 
 exports.getAllPosts = async (req, res, next) => {
+	const currentPage = req.query.page || 1;
+	const perPage = 2;
 	let posts;
 
 	try {
-		posts = await Post.find();
+		posts = await Post.find()
+			.skip((currentPage - 1) * perPage)
+			.limit(perPage);
 	} catch (err) {
 		return next(
 			new HttpError('Fetching posts failed, please try again later', 500)
