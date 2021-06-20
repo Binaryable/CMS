@@ -9,7 +9,7 @@ const User = require('../models/User');
 
 exports.getAllPosts = async (req, res, next) => {
 	const currentPage = req.query.page || 1;
-	const perPage = 2;
+	const perPage = req.query.limit || 4;
 	let posts;
 
 	try {
@@ -105,7 +105,7 @@ exports.createPost = async (req, res, next) => {
 	const createdPost = new Post({
 		title,
 		description,
-		image: req.file.path,
+		imageUrl: req.file.path,
 		creator,
 	});
 
