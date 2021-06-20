@@ -70,5 +70,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
 	console.log(`App listening on port ${PORT}...`.yellow.bold);
 	console.log(`API : http://localhost.com:${PORT}`.blue.bold);
-
 });
