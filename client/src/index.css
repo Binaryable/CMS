@@ -13,26 +13,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.mydashboard{
-  height: 100vh;
-  max-height: 100vh;
-  background-color: #212529!important;
+.logo {
+  align-items: center;
   text-align: center;
- 
-}
-.list-group-item{
-  background-color: rgba(255, 255, 255, 0) !important;
-  color: #f5f5f5;
-  border: 0px solid rgba(255, 255, 255, 0) !important;
-  left : 6px;
-}
-.list-group-item:hover{
-  background-color: rgba(255, 255, 255, 0.377) !important;
-  color: #f5f5f5;
-  border: 0px solid rgba(255, 255, 255, 0) !important;
-}
-.list-group-item.active{
-  background-color: #0d6efd !important;
-  padding: -5px;
-
+  border-radius: 20px;
+  margin: 5px auto !important;
 }

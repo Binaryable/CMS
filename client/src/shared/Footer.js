@@ -13,7 +13,7 @@ export default class Footer extends Component {
                         width: '100%',
                         textAlign: 'center',
                         }}>
-                     All rights reserved <strong>Binaryale©</strong>  2021    (MIT License)
+                     All rights reserved <strong>Binaryable©</strong>  2021    (MIT License)
                     </p>
             </>
         )

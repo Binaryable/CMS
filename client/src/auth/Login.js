@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import Cookies from 'universal-cookie';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import './auth.css'
+import Swal from 'sweetalert2'
+import { Redirect } from 'react-router';
+import './auth.scss'
+const { BASE_URL } = require('../shared/api')
 export default class Login extends Component {
   state = {
-  
   }
   handleInputs =(e)=>{
     e.preventDefault();
@@ -19,11 +21,27 @@ export default class Login extends Component {
       email: this.state.email ,
       password : this.state.password
     }
-  axios.post(`url`,data)
+  const Swal = require('sweetalert2')
+  axios.post(`${BASE_URL}/users/login`,data).then(res => {
+    console.log(res.data);
+    const token = res.data.token
+    const userID = res.data.userId
+    const cookies = new Cookies();
+    cookies.set('token',token, { path: '/' })
+    cookies.set('userID',userID, { path: '/' })
+    Swal.fire({
+      title: 'Loged in !',
+      text: `welcome back ${res.data.email}`,
+      icon: 'success',
+      confirmButtonText: 'Cool'
+    }).then(()=>{
+      window.location.reload()
+    })
+  })
   }
     render() {
         return (
-<div className="" id="login">
+<div  id="loginpage">
   <br /><br /><br />
 <main className="form-signin">
   <form onSubmit={this.handleSubmit}>
