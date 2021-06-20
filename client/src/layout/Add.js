@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 const { BASE_URL } = require('../shared/api') 
-export default class Add extends Component {
+export default class Add extends Component {  
     render() {
         // init state (those data would be sent via api )
         state = {
@@ -53,7 +53,7 @@ export default class Add extends Component {
             axios(config) // excute axios api
 
 
-
+                
             // promises 
                 .then(res =>{  // respond after excute axios
                 console.log(res.data);
@@ -62,7 +62,7 @@ export default class Add extends Component {
                 console.log(err);
                 });
         }
-
+        
         return (
             <div>
 
