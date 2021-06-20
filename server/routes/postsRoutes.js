@@ -26,11 +26,12 @@ router.post(
 	auth,
 	fileUpload.single('image'),
 	[
-		body('title', 'Title is required').not().isEmpty(),
-		body('description', 'Please enter description min length is 5').isLength({
-			min: 5,
-		}),
-		body('address', 'Address is required').not().isEmpty(),
+		body('title', 'Title is required').not().isEmpty().trim(),
+		body('description', 'Please enter description min length is 5')
+			.isLength({
+				min: 5,
+			})
+			.trim(),
 	],
 	createPost
 );
@@ -39,10 +40,12 @@ router.put(
 	'/:pid',
 	auth,
 	[
-		body('title', 'Title is required').not().isEmpty(),
-		body('description', 'Please enter description min length is 5').isLength({
-			min: 5,
-		}),
+		body('title', 'Title is required').not().isEmpty().trim(),
+		body('description', 'Please enter description min length is 5')
+			.isLength({
+				min: 5,
+			})
+			.trim(),
 	],
 	updatePostById
 );
