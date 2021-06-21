@@ -1,7 +1,7 @@
 import Login from './auth/Login'
 import Register from './auth/Register'
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route , Redirect } from "react-router-dom";
 import Footer from './shared/Footer';
 import Index from './layout/Index';
 import Cookies from 'universal-cookie';
@@ -22,6 +22,7 @@ function App() {
           <Route exact path="/register">
             <Register />
           </Route>
+          <Redirect to="" />
       </Switch>
     </Router>
     <Footer />

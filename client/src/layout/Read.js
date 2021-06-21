@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 const { BASE_URL } = require('../shared/api') 
+const { IMG_URL } = require('../shared/api') 
+
 export default function Read() {
     // use react hooks to coollect and handle data from api
     // init data in hook
@@ -40,7 +42,7 @@ export default function Read() {
 <div  class="card" >
   <div class="row">
     <div class="col-md-2">
-      <img src="https://avatars.githubusercontent.com/u/85824601?s=200&v=4" height='135px' alt="..." />
+      <img src={IMG_URL+item.imageUrl} height='135px' width="135px" alt="..." />
     </div>
     <div class="col-md-6">
       <div class="card-body">

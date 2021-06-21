@@ -63,7 +63,7 @@ export default class Login extends Component {
     <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
   </form>
   <br /><br />
-    <p>Don't have account ? <Link to="/Register">Create account now</Link> </p>
+    <p>Don't have account ? <Link to="/register">Create account now</Link> </p>
 </main>
  </div>
         )

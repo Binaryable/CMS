@@ -65,7 +65,7 @@ export default class Register extends Component {
     <button className="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
   </form>
   <br /><br />
-    <p>Already have registered account ? <Link to="/Login">Singin</Link> </p>
+    <p>Already have registered account ? <Link to="/">Singin</Link> </p>
 </main>
             </div>
         )
