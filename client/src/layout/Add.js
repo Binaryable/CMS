@@ -46,7 +46,7 @@ export default class Add extends Component {
                 'Accept': 'application/json', 
                 'Authorization': `Bearer ${token}`, 
                 'Content-Type': 'application/json'},
-            data: formdata  // data as form-data 
+            data: formdata  // data as form-data to send
         };
         axios(config) // excute axios api
         // promises 
